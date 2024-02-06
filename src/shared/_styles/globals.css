@@ -74,3 +74,11 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* CSS debugger */
+* {
+  box-sizing: border-box;
+  outline: 1px solid limegreen !important;
+}
+
+/* when it comes on color, use theme */
