@@ -1,5 +1,3 @@
-export default function HomePage() {
-  return (
-    <div>page</div>
-  )
+export default function Page() {
+  return <div className="text-white">Home</div>;
 }

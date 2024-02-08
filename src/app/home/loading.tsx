@@ -1,6 +1,3 @@
-
-export default function HomeLoading() {
-  return (
-    <div>loading</div>
-  )
+export default function Loading() {
+  return <div>loading</div>;
 }
