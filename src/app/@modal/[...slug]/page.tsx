@@ -4,6 +4,8 @@ import { useEffect } from 'react';
 import { notFound } from 'next/navigation';
 import SignIn from '~/app/_components/signin/signin';
 import SignUp from '~/app/_components/signup/signup';
+import SignInForm from '~/app/_components/signin/form-signin';
+import SignUpForm from '~/app/_components/signup/form-signup';
 
 export default function Page({ params: { slug } }: { params: { slug: string[] } }) {
   useEffect(() => {
@@ -23,11 +25,19 @@ export default function Page({ params: { slug } }: { params: { slug: string[] } 
   }
 
   if (slug[2] === 'signin') {
-    return <SignIn />;
+    return (
+      <SignIn>
+        <SignInForm />
+      </SignIn>
+    );
   }
 
   if (slug[2] === 'signup') {
-    return <SignUp />;
+    return (
+      <SignUp >
+        <SignUpForm />
+      </ SignUp >
+    );
   }
 
   return notFound();
