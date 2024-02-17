@@ -2,8 +2,16 @@ import Link from 'next/link';
 import LogoX from '~/shared/_icons/logo-x';
 import { Button } from '~/shared/_shacdn/ui/button';
 import { Separator } from '~/shared/_shacdn/ui/separator';
+import { validateRequest } from "~/server/auth";
+import { redirect } from "next/navigation";
 
-export default function Page() {
+export default async function Page() {
+  const { user } = await validateRequest();
+  
+  if (user) {
+		return redirect("/home");
+	}
+
   return (
     <>
       <header></header>

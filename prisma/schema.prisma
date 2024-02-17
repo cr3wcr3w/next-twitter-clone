@@ -18,3 +18,17 @@ model Post {
 
     @@index([name])
 }
+
+model User {
+  id       String    @id
+  sessions Session[]
+  password String
+  username String
+}
+
+model Session {
+  id        String   @id
+  userId    String
+  expiresAt DateTime
+  user      User     @relation(references: [id], fields: [userId], onDelete: Cascade)
+}

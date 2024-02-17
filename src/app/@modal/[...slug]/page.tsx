@@ -2,8 +2,8 @@
 
 import { useEffect } from 'react';
 import { notFound } from 'next/navigation';
-import SignIn from '~/app/_components/signin';
-import SignUp from '~/app/_components/signup';
+import SignIn from '~/app/_components/signin/signin';
+import SignUp from '~/app/_components/signup/signup';
 
 export default function Page({ params: { slug } }: { params: { slug: string[] } }) {
   useEffect(() => {
