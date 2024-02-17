@@ -1,7 +1,5 @@
 import Link from 'next/link';
 import LogoX from '~/shared/_icons/logo-x';
-import { Button } from '~/shared/_shacdn/ui/button';
-import { Separator } from '~/shared/_shacdn/ui/separator';
 import { validateRequest } from "~/server/auth";
 import { redirect } from "next/navigation";
 
@@ -28,25 +26,20 @@ export default async function Page() {
             <h1 className="mb-7 text-5xl md:text-6xl">Happening now</h1>
             <h2 className="mb-5 text-2xl lg:text-3xl">Join today.</h2>
             <div className="flex w-auto min-w-[15rem] max-w-[22rem] flex-col">
-              <Button className="mb-2 w-auto">Sign up with Google</Button>
-              <Button className="mb-3 w-auto">Sign up with Apple</Button>
-              <div className="mb-3 flex w-auto">
-                <Separator className="my-4" style={{ flexShrink: 1 }} />
-                <p className="mx-2">or</p>
-                <Separator className="my-4" style={{ flexShrink: 1 }} />
-              </div>
               <Link
                 href="/i/flow/signup"
-                className="mb-3 inline-flex h-10 w-auto items-center justify-center whitespace-nowrap rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground ring-offset-background transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 lg:mb-0"
+                className="mb-3 inline-flex h-10 w-auto items-center justify-center whitespace-nowrap rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground ring-offset-background transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
               >
                 Create account
               </Link>
+              
               <p className="mb-14 text-xs">
                 By signing up, you agree to the{' '}
                 <span className="cursor-pointer hover:underline">Terms of Service</span> and{' '}
                 <span className="cursor-pointer hover:underline">Privacy Policy</span>, including{' '}
                 <span className="cursor-pointer hover:underline">Cookie Use</span>.
               </p>
+
               <h3 className="mb-4 text-lg lg:text-xl">Already have an account?</h3>
               <Link
                 href="/i/flow/signin"
