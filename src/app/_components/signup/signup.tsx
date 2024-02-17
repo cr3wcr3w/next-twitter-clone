@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { Button } from '~/shared/_shacdn/ui/button';
 import { Input } from '~/shared/_shacdn/ui/input';
 import LogoX from '~/shared/_icons/logo-x';
-import signup from './_action/signup-action';
+import signup from './action/signup-action';
 import { Form } from "~/server/form";
 
 export default function SignUp() {

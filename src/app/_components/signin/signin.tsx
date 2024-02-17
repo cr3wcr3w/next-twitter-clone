@@ -3,7 +3,7 @@ import { Button } from '~/shared/_shacdn/ui/button';
 import LogoX from '~/shared/_icons/logo-x';
 import { Input } from '~/shared/_shacdn/ui/input';
 import { Form } from '~/server/form';
-import login from './_action/signin-action';
+import login from './action/signin-action';
 
 export default function SignIn() {
 
