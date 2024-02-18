@@ -34,9 +34,9 @@ export default function Page({ params: { slug } }: { params: { slug: string[] } 
 
   if (slug[2] === 'signup') {
     return (
-      <SignUp >
+      <SignUp>
         <SignUpForm />
-      </ SignUp >
+      </SignUp>
     );
   }
 

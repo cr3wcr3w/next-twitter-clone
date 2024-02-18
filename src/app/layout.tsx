@@ -22,7 +22,7 @@ type PropsType = {
 export default function Layout({ children, modal }: PropsType) {
   return (
     <html lang="en">
-      <body className={`font-sans ${inter.variable} flex h-screen flex-col bg-black`}>
+      <body className={`font-sans ${inter.variable} flex h-screen flex-col bg-black text-white`}>
         {modal}
         {children}
       </body>

@@ -1,4 +1,4 @@
-"use client"
+'use client';
 
 import Link from 'next/link';
 import LogoX from '~/shared/_icons/logo-x';
@@ -6,7 +6,7 @@ import { type ReactNode } from 'react';
 import { useClickOutside } from '@mantine/hooks';
 import { useRouter } from 'next/navigation';
 
-export default function SignUp({children}: {children: ReactNode}) {
+export default function SignUp({ children }: { children: ReactNode }) {
   const router = useRouter();
 
   const ref = useClickOutside(() => {
@@ -40,4 +40,3 @@ export default function SignUp({children}: {children: ReactNode}) {
     </div>
   );
 }
-

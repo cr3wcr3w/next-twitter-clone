@@ -1,14 +1,14 @@
 import Link from 'next/link';
 import LogoX from '~/shared/_icons/logo-x';
-import { validateRequest } from "~/server/auth";
-import { redirect } from "next/navigation";
+import { validateRequest } from '~/server/auth';
+import { redirect } from 'next/navigation';
 
 export default async function Page() {
   const { user } = await validateRequest();
-  
+
   if (user) {
-		return redirect("/home");
-	}
+    return redirect('/home');
+  }
 
   return (
     <>
@@ -32,7 +32,7 @@ export default async function Page() {
               >
                 Create account
               </Link>
-              
+
               <p className="mb-14 text-xs">
                 By signing up, you agree to the{' '}
                 <span className="cursor-pointer hover:underline">Terms of Service</span> and{' '}
