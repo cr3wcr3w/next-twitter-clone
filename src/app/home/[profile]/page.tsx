@@ -3,6 +3,7 @@ import { Input } from '~/shared/_shacdn/ui/input';
 import CheckUser from './_action/check-user';
 import { notFound } from 'next/navigation';
 import getUserData from './_action/get-user-data';
+import ListAllUsers from '../_components/list-all-users/listAllUsers';
 
 export default async function Page({ params }: { params: { profile: string } }) {
   const isUserExist = await CheckUser(params.profile);
@@ -58,12 +59,7 @@ export default async function Page({ params }: { params: { profile: string } }) 
             </a>
           </div>
         </div>
-        <div className="rounded-lg bg-white/10 p-5 text-white">
-          <div className="flex w-full flex-col">
-            <p className="pb-2 text-lg font-bold">Who to follow</p>
-            <p className="pb-3 text-sm">sample Person</p>
-          </div>
-        </div>
+        <ListAllUsers />
       </footer>
     </>
   );

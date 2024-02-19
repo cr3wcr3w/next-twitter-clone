@@ -1,6 +1,7 @@
 import { Textarea } from '~/shared/_shacdn/ui/textarea';
 import { Separator } from '~/shared/_shacdn/ui/separator';
 import { Input } from '~/shared/_shacdn/ui/input';
+import ListAllUsers from './_components/list-all-users/listAllUsers';
 
 export default function Page() {
   return (
@@ -60,12 +61,7 @@ export default function Page() {
             </a>
           </div>
         </div>
-        <div className="rounded-lg bg-white/10 p-5 text-white">
-          <div className="flex w-full flex-col">
-            <p className="pb-2 text-lg font-bold">Who to follow</p>
-            <p className="pb-3 text-sm">sample Person</p>
-          </div>
-        </div>
+        <ListAllUsers />
       </footer>
     </>
   );

@@ -9,6 +9,8 @@ import getUser from './_action/get-user';
 
 export default async function Layout({ children }: { children: React.ReactNode }) {
   // way to protect routes
+  // Do i need to authorization every request? dunno but i just put authorization in every request
+
   const { user } = await validateRequest();
   if (!user) {
     return redirect('/');
@@ -69,7 +71,7 @@ export default async function Layout({ children }: { children: React.ReactNode }
               <button className="flex w-full items-center gap-1 rounded-full border border-black px-3 py-3 hover:bg-white/10 xl:gap-1">
                 <LogOut />
                 <p className="hidden w-full text-center text-lg font-semibold xl:block">
-                  {userData?.username}
+                  @{userData?.username}
                 </p>
               </button>
             </TooltipWrapper>
