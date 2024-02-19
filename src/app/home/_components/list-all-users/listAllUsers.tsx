@@ -1,13 +1,7 @@
-import { validateRequest } from '~/server/auth';
 import getAllUserData from './_actions/get-all-user-data';
 import Link from 'next/link';
 
 export default async function ListAllUsers() {
-  const { user } = await validateRequest();
-
-  if (!user) {
-    return false;
-  }
 
   const DATA = await getAllUserData();
 
