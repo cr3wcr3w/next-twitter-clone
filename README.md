@@ -1,12 +1,28 @@
 ###  Getting started
 ```bash
-# docker 
-docker compose up
+# use wsl or a linux distro
+# make sure docker is installed
+# make sure pnpm is installed
+
+# install packages
+pnpm install
+
+# make a copy of .env.example into .env
+
+# prisma setup
+# run docker
+pnpm db:push
+
+--- 
+# POST INSTALLATION
+
+# run docker 
 # docker compose down
+docker compose up
 # docker compose config
 
-# connect prisma into your database
-npx prisma migrate dev --name init
+# prisma studio
+pnpm db:studio
 
 # next.js 
 pnpm dev
@@ -50,3 +66,5 @@ pnpm dev
     |- /_components
     |- /_icons
 ```
+
+![architecture](./public/next-twitter-clone-architecture.png)
