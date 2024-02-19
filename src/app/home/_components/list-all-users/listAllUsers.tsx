@@ -2,7 +2,6 @@ import getAllUserData from './_actions/get-all-user-data';
 import Link from 'next/link';
 
 export default async function ListAllUsers() {
-
   const DATA = await getAllUserData();
 
   return (
@@ -13,9 +12,9 @@ export default async function ListAllUsers() {
           {DATA?.map(user => {
             return (
               <div key={user.username}>
-                <Link href={`/home/${user.username}`} className="pb-3 text-sm underline" >
-                @{user.username}
-              </Link>
+                <Link href={`/home/${user.username}`} className="pb-3 text-sm underline">
+                  @{user.username}
+                </Link>
               </div>
             );
           })}
