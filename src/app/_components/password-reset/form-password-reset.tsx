@@ -1,29 +1,23 @@
 import { Input } from '~/shared/_shacdn/ui/input';
 import { Form } from '~/server/form';
-import login from './action/signin-action';
+import reset from './action/reset-password-action';
 import { Button } from '~/shared/_shacdn/ui/button';
 import { useFormStatus } from 'react-dom';
-import Link from 'next/link';
 
 function Submit() {
   const { pending } = useFormStatus();
   return (
-    <>
-      <Button type="submit" disabled={pending} className="mb-5 w-full">
-        {pending ? 'Loading...' : 'Continue'}
-      </Button>
-      <Button type="button" className="mb-5 w-full" disabled={pending}>
-        <Link href={'/i/flow/password_reset'}>Forgot password?</Link>
-      </Button>
-    </>
+    <Button type="submit" disabled={pending} className="mb-5 w-full">
+      {pending ? 'Loading...' : 'Continue'}
+    </Button>
   );
 }
 
-export default function SignInForm() {
+export default function PasswordResetForm() {
   return (
     <>
       <div className="flex flex-col">
-        <Form action={login}>
+        <Form action={reset}>
           <Input
             name="username"
             id="username"
@@ -32,10 +26,10 @@ export default function SignInForm() {
             className="mb-5 text-black"
           />
           <Input
-            name="password"
-            id="password"
+            name="newpassword"
+            id="newpassword"
             type="password"
-            placeholder="Password"
+            placeholder="New Password"
             className="mb-5 text-black"
           />
           <Submit />
