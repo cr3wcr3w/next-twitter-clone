@@ -1,7 +1,17 @@
+import { useFormStatus } from 'react-dom';
 import signup from './action/signup-action';
 import { Form } from '~/server/form';
 import { Button } from '~/shared/_shacdn/ui/button';
 import { Input } from '~/shared/_shacdn/ui/input';
+
+function Submit() {
+  const { pending } = useFormStatus();
+  return (
+    <Button type="submit" disabled={pending} className="w-full">
+      {pending ? 'Loading...' : 'Continue'}
+    </Button>
+  );
+}
 
 export default function SignUpForm() {
   return (
@@ -27,7 +37,7 @@ export default function SignUpForm() {
       </div>
 
       <div>
-        <Button className="w-full">Continue </Button>
+        <Submit />
       </div>
     </Form>
   );

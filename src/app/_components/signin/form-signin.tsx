@@ -2,6 +2,16 @@ import { Input } from '~/shared/_shacdn/ui/input';
 import { Form } from '~/server/form';
 import login from './action/signin-action';
 import { Button } from '~/shared/_shacdn/ui/button';
+import { useFormStatus } from 'react-dom';
+
+function Submit() {
+  const { pending } = useFormStatus();
+  return (
+    <button type="submit" disabled={pending} className="mb-5 w-full">
+      {pending ? 'Loading...' : 'Continue'}
+    </button>
+  );
+}
 
 export default function SignInForm() {
   return (
@@ -22,9 +32,7 @@ export default function SignInForm() {
             placeholder="Password"
             className="mb-5 text-black"
           />
-          <Button type="submit" className="mb-5 w-full">
-            Continue{' '}
-          </Button>
+          <Submit />
         </Form>
         <Button className="mb-5 w-auto">Forgot password?</Button>
       </div>

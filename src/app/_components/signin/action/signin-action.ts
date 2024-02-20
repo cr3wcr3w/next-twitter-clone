@@ -7,6 +7,10 @@ import { redirect } from 'next/navigation';
 
 import type { ActionResult } from '~/server/form';
 
+function delay(ms: number) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 export default async function login(_: unknown, formData: FormData): Promise<ActionResult> {
   const username = formData.get('username');
   if (
@@ -25,6 +29,8 @@ export default async function login(_: unknown, formData: FormData): Promise<Act
       error: 'Invalid password',
     };
   }
+
+  await delay(2000);
 
   const existingUser = await db.user.findFirst({
     where: {

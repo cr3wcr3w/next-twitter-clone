@@ -9,6 +9,10 @@ import { generateId } from 'lucia';
 
 import type { ActionResult } from '~/server/form';
 
+function delay(ms: number) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 export default async function signup(_: unknown, formData: FormData): Promise<ActionResult> {
   const username = formData.get('username');
   // username must be between 4 ~ 31 characters, and only consists of lowercase letters, 0-9, -, and _
@@ -29,6 +33,8 @@ export default async function signup(_: unknown, formData: FormData): Promise<Ac
       error: 'Invalid password',
     };
   }
+
+  await delay(2000);
 
   const hashedPassword = await new Argon2id().hash(password);
   const userId = generateId(15);
