@@ -25,7 +25,7 @@ fi
 
 if ! [ -x "$(command -v pnpm)" ]; then
   echo -e "\n"
-  echo -e "\e[31m Docker is not installed. Please install pnpm and try again.\nDocker install guide: https://pnpm.io/installation \e[0m" >&2
+  echo -e "\e[31m PNPM is not installed. Please install PNPM and try again.\nPNPM install guide: https://pnpm.io/installation \e[0m" >&2
   echo -e "\n"
   exit 1
 fi

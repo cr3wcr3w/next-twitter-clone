@@ -1,7 +1,7 @@
 ###  Getting started
 ```bash
 # run the script
-./start-build.sh [-dev|-build]
+./start.sh [-dev|-build]
 ```
 ---
 ### Folder structure
