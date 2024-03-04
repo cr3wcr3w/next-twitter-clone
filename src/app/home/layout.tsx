@@ -23,7 +23,7 @@ export default async function Layout({ children }: { children: React.ReactNode }
     <section>
       {/* Include shared UI here e.g. a header or sidebar */}
       <nav></nav>
-      <div className="flex h-dvh sm:mx-10 md:mx-20 lg:mx-32">
+      <div className="flex h-dvh sm:mx-10 md:mx-20 lg:mx-32 justify-center">
         <nav className="flex flex-col justify-between gap-5 overflow-y-auto px-3 py-2 sm:px-4 sm:py-3 lg:gap-8 xl:gap-9">
           <div className="flex h-full flex-col gap-4 lg:gap-7 xl:gap-8">
             <Link
