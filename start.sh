@@ -46,10 +46,10 @@ initialize() {
     echo -e "\e[32m-----------------------------------------------\e[0m"
 
     # Stop any existing containers
-    docker-compose down
+    docker compose down
 
     # Start containers
-    docker-compose up -d
+    docker compose up -d
 
     echo -e "\n"
     echo -e "\e[32m-----------------------------------------------\e[0m"
