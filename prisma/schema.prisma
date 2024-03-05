@@ -2,12 +2,12 @@
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 generator client {
-    provider = "prisma-client-js"
+  provider = "prisma-client-js"
 }
 
 datasource db {
-    provider = "postgresql"
-    url      = env("DATABASE_URL")
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
 }
 
 model User {
@@ -15,32 +15,57 @@ model User {
   sessions Session[]
   password String
   username String
+  posts    Post[]
+  likes    Like[]
+  // Retweet  Retweet[]
 }
 
 model Session {
   id        String   @id
   userId    String
   expiresAt DateTime
-  user      User     @relation(references: [id], fields: [userId], onDelete: Cascade)
+
+  user User @relation(references: [id], fields: [userId], onDelete: Cascade)
 }
 
 model Post {
-    id        String   @id
-    tweets    String
-    comments  Comment[]
-    createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
+  id        String    @id
+  tweets    String
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  // comments  Comment[]
+  userId    String
+  userName  String
+  likes     Like[]
+  // retweets  Retweet[]
 
-    @@index([tweets])
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
-model Comment {
-    id        Int      @id @default(autoincrement())
-    content   String
-    createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
-    postId    String
+// model Comment {
+//   id        Int      @id @default(autoincrement())
+//   content   String
+//   createdAt DateTime @default(now())
+//   updatedAt DateTime @updatedAt
+//   postId    String
 
-    post      Post     @relation(references: [id], fields: [postId])
+//   post Post @relation(references: [id], fields: [postId], onDelete: Cascade)
+// }
+
+model Like {
+  id     Int    @id @default(autoincrement())
+  postId String
+  userId String
+
+  post Post @relation(fields: [postId], references: [id], onDelete: Cascade)
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
-  
+
+// model Retweet {
+//   id     Int    @id @default(autoincrement())
+//   postId String
+//   userId String
+
+//   post Post @relation(fields: [postId], references: [id], onDelete: Cascade)
+//   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+// }

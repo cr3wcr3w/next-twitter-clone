@@ -1,14 +1,17 @@
-import { Textarea } from '~/shared/_shacdn/ui/textarea';
 import { Separator } from '~/shared/_shacdn/ui/separator';
 import { Input } from '~/shared/_shacdn/ui/input';
 import ListAllUsers from './_components/list-all-users/listAllUsers';
+import AllTweetsList from './_components/all-tweets-list/all-tweets-list';
+import { Suspense } from 'react';
+import Loading from './_components/all-tweets-list/loading';
+import PostTweet from './_components/post-tweet/post-tweet';
 
 export default function Page() {
   return (
     <>
-      <main className="flex-1 border-x-[1px] border-white/55 text-white max-w-[50rem]">
+      <main className="max-w-[50rem] flex-1 border-x-[1px] border-white/55 text-white">
         <div className="flex h-full flex-col ">
-          <div className="border-b-[1px] border-white/55 px-4 py-2">
+          <div className="sticky top-0 border-b-[1px] border-white/55 bg-black/75 px-4 py-2 backdrop-blur-sm">
             <div className="flex justify-evenly">
               <p className="w-full cursor-pointer p-1 text-center text-sm font-medium hover:bg-white/10 sm:p-[0.4rem] lg:p-2 lg:text-base">
                 For you
@@ -18,28 +21,23 @@ export default function Page() {
               </p>
             </div>
           </div>
-          <div className="flex-1 overflow-y-auto">
+          <div className="flex-1">
             <div>
               <div className="p-2 sm:p-[0.6rem] lg:p-3">
-                <form>
-                  <Textarea placeholder="What is happening?!" className="mb-5 text-black" />
-                  <button className="rounded-full bg-white px-5 py-2 text-base font-normal text-black hover:bg-white/70">
-                    Post
-                  </button>
-                  <Separator className="my-4" />
-                </form>
+                <PostTweet />
               </div>
+              <Separator className="my-[1px]" />
               <div>
-                <div className="p-2 sm:p-[0.6rem] lg:p-3 ">
-                  <div className="">Tweets Section</div>
-                </div>
+                <Suspense fallback={<Loading />}>
+                  <AllTweetsList />
+                </Suspense>
               </div>
             </div>
           </div>
         </div>
       </main>
 
-      <footer className="hidden w-[22rem] overflow-y-auto md:px-4 md:py-3 xl:block">
+      <footer className="sticky top-0 hidden h-dvh w-[22rem] md:px-4 md:py-3 xl:block">
         <Input
           type="search"
           placeholder="Search"
