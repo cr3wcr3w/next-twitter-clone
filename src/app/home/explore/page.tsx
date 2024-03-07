@@ -5,7 +5,7 @@ import ListAllUsers from '../_components/list-all-users/listAllUsers';
 export default function Page() {
   return (
     <>
-      <main className="flex-1 border-x-[1px] border-white/55 text-white">
+      <main className="max-w-[50rem] flex-1 border-x-[1px] border-white/55 text-white">
         <div className="flex h-full flex-col ">
           <div className="px-4 py-2">
             <Input type="search" placeholder="Search" className="w-full rounded-full text-black" />
@@ -27,7 +27,7 @@ export default function Page() {
         </div>
       </main>
 
-      <footer className="hidden w-[22rem] overflow-y-auto md:px-4 md:py-3 xl:block">
+      <footer className="sticky top-0 hidden h-dvh w-[22rem] md:px-4 md:py-3 xl:block">
         <div className="mb-5 rounded-lg bg-white/10 p-5 text-white">
           <div className="flex w-full flex-col">
             <p className="pb-2 text-xl font-bold">Visit the GitHub project</p>

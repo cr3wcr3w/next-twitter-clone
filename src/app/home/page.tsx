@@ -12,21 +12,18 @@ export default function Page() {
     <>
       <main className="max-w-[50rem] flex-1 border-x-[1px] border-white/55 text-white">
         <div className="flex h-full flex-col border-b-[1px] border-white/55">
-
           {/* tabs */}
-          <Tabs
-            defaultValue="foryou"
-          >
-            <TabsList className="h-min flex w-full justify-evenly sticky top-0 bg-black/75 backdrop-blur-sm border-b-[1px] border-white/55">
+          <Tabs defaultValue="foryou">
+            <TabsList className="sticky top-0 flex h-min w-full justify-evenly border-b-[1px] border-white/55 bg-black/75 backdrop-blur-sm">
               <TabsTrigger
                 value="foryou"
-                className="w-full text-sm font-medium hover:bg-white/10 lg:text-base h-12"
+                className="h-12 w-full text-sm font-medium hover:bg-white/10 lg:text-base"
               >
                 For you
               </TabsTrigger>
               <TabsTrigger
                 value="following"
-                className="w-full text-sm font-medium hover:bg-white/10 lg:text-base h-12"
+                className="h-12 w-full text-sm font-medium hover:bg-white/10 lg:text-base"
               >
                 Following
               </TabsTrigger>
