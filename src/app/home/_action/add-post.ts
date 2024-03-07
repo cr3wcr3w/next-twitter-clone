@@ -6,7 +6,6 @@ import { v4 as uuid } from 'uuid';
 import { redirect } from 'next/navigation';
 
 export default async function addPost(post: string) {
-
   if (post === '') {
     return;
   }

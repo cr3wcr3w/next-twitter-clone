@@ -5,35 +5,49 @@ import AllTweetsList from './_components/all-tweets-list/all-tweets-list';
 import { Suspense } from 'react';
 import Loading from './_components/all-tweets-list/loading';
 import PostTweet from './_components/post-tweet/post-tweet';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '~/shared/_shacdn/ui/tabs';
 
 export default function Page() {
   return (
     <>
       <main className="max-w-[50rem] flex-1 border-x-[1px] border-white/55 text-white">
-        <div className="flex h-full flex-col ">
-          <div className="sticky top-0 border-b-[1px] border-white/55 bg-black/75 px-4 py-2 backdrop-blur-sm">
-            <div className="flex justify-evenly">
-              <p className="w-full cursor-pointer p-1 text-center text-sm font-medium hover:bg-white/10 sm:p-[0.4rem] lg:p-2 lg:text-base">
+        <div className="flex h-full flex-col border-b-[1px] border-white/55">
+
+          {/* tabs */}
+          <Tabs
+            defaultValue="foryou"
+          >
+            <TabsList className="h-min flex w-full justify-evenly sticky top-0 bg-black/75 backdrop-blur-sm border-b-[1px] border-white/55">
+              <TabsTrigger
+                value="foryou"
+                className="w-full text-sm font-medium hover:bg-white/10 lg:text-base h-12"
+              >
                 For you
-              </p>
-              <p className="w-full cursor-pointer p-1 text-center text-sm font-medium hover:bg-white/10 sm:p-[0.4rem] lg:p-2 lg:text-base">
+              </TabsTrigger>
+              <TabsTrigger
+                value="following"
+                className="w-full text-sm font-medium hover:bg-white/10 lg:text-base h-12"
+              >
                 Following
-              </p>
-            </div>
-          </div>
-          <div className="flex-1">
-            <div>
-              <div className="p-2 sm:p-[0.6rem] lg:p-3">
-                <PostTweet />
+              </TabsTrigger>
+            </TabsList>
+            <TabsContent value="foryou">
+              <div className="flex-1">
+                <div>
+                  <div className="p-2 sm:p-[0.6rem] lg:p-3">
+                    <PostTweet />
+                  </div>
+                  <Separator className="my-[1px]" />
+                  <div>
+                    <Suspense fallback={<Loading />}>
+                      <AllTweetsList />
+                    </Suspense>
+                  </div>
+                </div>
               </div>
-              <Separator className="my-[1px]" />
-              <div>
-                <Suspense fallback={<Loading />}>
-                  <AllTweetsList />
-                </Suspense>
-              </div>
-            </div>
-          </div>
+            </TabsContent>
+            <TabsContent value="following">Coming Soon</TabsContent>
+          </Tabs>
         </div>
       </main>
 

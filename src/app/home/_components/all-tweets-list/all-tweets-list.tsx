@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import getAllPosts from './_actions/get-all-posts';
 
+// use sockets.io to detect new post
+
 export default async function AllTweetsList() {
   const posts = await getAllPosts();
 

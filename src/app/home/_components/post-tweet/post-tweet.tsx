@@ -22,8 +22,8 @@ export default function PostTweet() {
       <button
         className="rounded-full bg-white px-5 py-2 text-base font-normal text-black hover:bg-white/70"
         onClick={async () => {
-          setTweet('')
-            await addPost(tweet);
+          setTweet('');
+          await addPost(tweet);
         }}
       >
         Post
