@@ -1,9 +1,15 @@
 'use action';
 import { db } from '~/server/db';
 
-export default async function getAllPosts(): Promise<
-  { tweets: string; id: string; createdAt: Date; userId: string; userName: string }[] | null
-> {
+type getAllPostsType = {
+  tweets: string;
+  id: string;
+  createdAt: Date;
+  userId: string;
+  userName: string;
+};
+
+export default async function getAllPosts(): Promise<getAllPostsType[] | null> {
   try {
     // temp delay
     await new Promise(resolve => setTimeout(resolve, 1000));

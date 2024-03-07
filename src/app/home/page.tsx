@@ -1,11 +1,11 @@
 import { Separator } from '~/shared/_shacdn/ui/separator';
 import { Input } from '~/shared/_shacdn/ui/input';
 import ListAllUsers from './_components/list-all-users/listAllUsers';
-import AllTweetsList from './_components/all-tweets-list/all-tweets-list';
 import { Suspense } from 'react';
 import Loading from './_components/all-tweets-list/loading';
 import PostTweet from './_components/post-tweet/post-tweet';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '~/shared/_shacdn/ui/tabs';
+import AllTweetsList from './_components/all-tweets-list/all-tweets-list';
 
 export default function Page() {
   return (
@@ -75,5 +75,3 @@ export default function Page() {
     </>
   );
 }
-
-// /home [2 tabs]
