@@ -21,13 +21,13 @@ export default async function Page({ params }: { params: { profile: string } }) 
     <>
       <main className="max-w-[50rem] flex-1 border-x-[1px] border-white/55 text-white">
         <div className="flex h-full flex-col">
-          <div className="sticky top-0 flex border-b-[1px] border-white/55 p-2 backdrop-blur-sm lg:p-3">
+          <div className="sticky top-0 flex border-b-[1px] border-white/55 p-2 backdrop-blur-sm lg:p-3 gap-2 lg:gap-3">
             <ButtonGoBack />
             <p>{userData?.username}</p>
           </div>
           <div className="flex-1">
             <div>
-              <div className="border-b-[1px] p-4 lg:p-5">My Tweets</div>
+              <div className="border-b-[1px] p-4 lg:p-5">{userData?.username}&apos;s Tweets</div>
 
               <div className="flex flex-col">
                 {userData?.posts?.reverse().map((item, index) => {
