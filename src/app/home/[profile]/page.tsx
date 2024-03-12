@@ -21,7 +21,7 @@ export default async function Page({ params }: { params: { profile: string } }) 
     <>
       <main className="max-w-[50rem] flex-1 border-x-[1px] border-white/55 text-white">
         <div className="flex h-full flex-col">
-          <div className="sticky top-0 flex border-b-[1px] border-white/55 p-2 backdrop-blur-sm lg:p-3 gap-2 lg:gap-3">
+          <div className="sticky top-0 flex gap-2 border-b-[1px] border-white/55 p-2 backdrop-blur-sm lg:gap-3 lg:p-3">
             <ButtonGoBack />
             <p>{userData?.username}</p>
           </div>
@@ -37,7 +37,7 @@ export default async function Page({ params }: { params: { profile: string } }) 
                       key={index}
                     >
                       <div className="flex justify-between">
-                        <Link href={`home/${item.userName}`}>
+                        <Link href={`/home/${item.userName}`}>
                           <p className="mb-2 cursor-pointer text-sm hover:underline">
                             @{item.userName}
                           </p>

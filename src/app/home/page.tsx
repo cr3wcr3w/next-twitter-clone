@@ -2,9 +2,9 @@ import { Separator } from '~/shared/_shacdn/ui/separator';
 import { Input } from '~/shared/_shacdn/ui/input';
 import ListAllUsers from './_components/list-all-users/listAllUsers';
 import { Suspense } from 'react';
-import Loading from './_components/all-tweets-list/loading';
 import PostTweet from './_components/post-tweet/post-tweet';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '~/shared/_shacdn/ui/tabs';
+import Loading from './_components/all-tweets-list/loading';
 import AllTweetsList from './_components/all-tweets-list/all-tweets-list';
 
 export default function Page() {
@@ -14,7 +14,7 @@ export default function Page() {
         <div className="flex h-full flex-col border-b-[1px] border-white/55">
           {/* tabs */}
           <Tabs defaultValue="foryou">
-            <TabsList className="sticky top-0 flex h-min w-full justify-evenly border-b-[1px] border-white/55 bg-black/75 backdrop-blur-sm">
+            <TabsList className="sticky top-0 z-50 flex h-min w-full justify-evenly border-b-[1px] border-white/55 bg-black/75 backdrop-blur-sm">
               <TabsTrigger
                 value="foryou"
                 className="h-12 w-full text-sm font-medium hover:bg-white/10 lg:text-base"
