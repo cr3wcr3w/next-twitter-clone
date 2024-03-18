@@ -4,8 +4,9 @@ import { notFound } from 'next/navigation';
 import getUserData from './_action/get-user-data';
 import ListAllUsers from '../_components/list-all-users/listAllUsers';
 import ButtonGoBack from './_components/button-goback';
-import Link from 'next/link';
-import { MoreHorizontal } from 'lucide-react';
+import { Suspense } from 'react';
+import Loading from './_components/loading';
+import TweetsProfilePost from './_components/tweets-profile-post';
 
 export default async function Page({ params }: { params: { profile: string } }) {
   const isUserExist = await CheckUser(params.profile);
@@ -29,30 +30,9 @@ export default async function Page({ params }: { params: { profile: string } }) 
             <div>
               <div className="border-b-[1px] p-4 lg:p-5">{userData?.username}&apos;s Tweets</div>
 
-              <div className="flex flex-col">
-                {userData?.posts?.reverse().map((item, index) => {
-                  return (
-                    <div
-                      className="border-b-[1px] px-3 py-4 hover:bg-white/20 lg:px-4 lg:py-5"
-                      key={index}
-                    >
-                      <div className="flex justify-between">
-                        <Link href={`/home/${item.userName}`}>
-                          <p className="mb-2 cursor-pointer text-sm hover:underline">
-                            @{item.userName}
-                          </p>
-                        </Link>
-                        <div className="flex w-6 cursor-pointer items-center justify-center rounded-full hover:bg-white/15">
-                          <MoreHorizontal className="w-5" />
-                        </div>
-                      </div>
-                      <div className="pl-4">
-                        <p className="text-pretty break-words break-all text-lg">{item.tweets}</p>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
+              <Suspense fallback={<Loading />}>
+                <TweetsProfilePost params={params} />
+              </Suspense>
             </div>
           </div>
         </div>

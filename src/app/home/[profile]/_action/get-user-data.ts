@@ -15,6 +15,9 @@ type postType = {
 export default async function getUserData(
   username: string
 ): Promise<{ username: string; posts: postType[] } | null> {
+  // temp delay
+  await new Promise(resolve => setTimeout(resolve, 1000));
+
   const { user } = await validateRequest();
 
   if (!user) {
