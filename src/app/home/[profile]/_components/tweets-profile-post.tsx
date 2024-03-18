@@ -16,7 +16,12 @@ export default async function TweetsProfilePost({ params }: { params: { profile:
               <Link href={`home/${item.userName}`}>
                 <p className="mb-2 cursor-pointer text-sm hover:underline">@{item.userName}</p>
               </Link>
-              <SettingsMenu UserId={item.userId} id={item.id} currentUserId={user?.id} />
+              <SettingsMenu
+                UserId={item.userId}
+                id={item.id}
+                currentUserId={user?.id}
+                user={user?.username}
+              />
             </div>
             <div className="pl-4">
               <p className="text-pretty break-words break-all text-lg">{item.tweets}</p>

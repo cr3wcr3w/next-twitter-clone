@@ -2,17 +2,19 @@
 
 import { Github, MoreHorizontal, Repeat2, Trash2, UserPlus } from 'lucide-react';
 import { Popover, PopoverContent, PopoverTrigger } from '~/shared/_shacdn/ui/popover';
-import removePost from '~/app/home/_action/remove-post';
 import { useState } from 'react';
+import removePost from '../_action/remove-post';
 
 export function SettingsMenu({
   UserId,
   id,
   currentUserId,
+  user,
 }: {
   UserId: string;
   id: string;
   currentUserId: string | undefined;
+  user: string | undefined;
 }) {
   const [isOpenModalPost, setIsOpenModalPost] = useState(false);
 
@@ -53,7 +55,7 @@ export function SettingsMenu({
               <button
                 className="flex w-full items-center gap-2 p-3 hover:bg-white/20"
                 onClick={async () => {
-                  await removePost(id);
+                  await removePost(id, user);
                   setIsOpenModalPost(false);
                 }}
               >
