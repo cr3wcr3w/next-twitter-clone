@@ -13,7 +13,7 @@ export default async function TweetsProfilePost({ params }: { params: { profile:
         return (
           <div className="border-b-[1px] px-3 py-4 hover:bg-white/20 lg:px-4 lg:py-5" key={index}>
             <div className="flex justify-between">
-              <Link href={`home/${item.userName}`}>
+              <Link href={`/home/${item.userName}`}>
                 <p className="mb-2 cursor-pointer text-sm hover:underline">@{item.userName}</p>
               </Link>
               <SettingsMenu
