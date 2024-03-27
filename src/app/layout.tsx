@@ -16,8 +16,10 @@ type PropsType = {
 export default function Layout({ children, modal }: PropsType) {
   return (
     <html lang="en">
-      {modal}
-      {children}
+      <body>
+        {modal}
+        {children}
+      </body>
     </html>
   );
 }

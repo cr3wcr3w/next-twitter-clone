@@ -11,7 +11,7 @@ export default async function Page() {
   }
 
   return (
-    <body className={`flex h-screen flex-col bg-black text-white`}>
+    <div className={`flex h-screen flex-col bg-black text-white`}>
       <header></header>
       <main className="flex-1 px-8 pt-8 text-white lg:pt-14">
         <section className="flex h-full w-full items-center justify-center">
@@ -114,6 +114,6 @@ export default async function Page() {
           </a>
         </div>
       </footer>
-    </body>
+    </div>
   );
 }

@@ -20,7 +20,7 @@ export default async function Layout({ children }: { children: React.ReactNode }
   const userData = await getUser();
 
   return (
-    <body className="flex min-h-dvh justify-center overflow-y-auto bg-black text-white sm:mx-10 md:mx-20 lg:mx-32">
+    <div className="flex min-h-dvh justify-center overflow-y-auto bg-black text-white sm:px-10 md:px-20 lg:px-32">
       {/* Include shared UI here e.g. a header or sidebar */}
       <nav className="sticky top-0 flex h-dvh flex-col justify-between gap-5 px-3 py-2 sm:px-4 sm:py-3 lg:gap-8 xl:gap-9">
         <div className="flex h-full flex-col gap-4 lg:gap-7 xl:gap-8">
@@ -76,6 +76,6 @@ export default async function Layout({ children }: { children: React.ReactNode }
         </Form>
       </nav>
       {children}
-    </body>
+    </div>
   );
 }
