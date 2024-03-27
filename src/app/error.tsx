@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function Error({
   error,
@@ -9,10 +9,15 @@ export default function Error({
   error: Error & { digest?: string };
   reset: () => void;
 }) {
+  const [isClientRendered, setIsClientRendered] = useState(false) 
+
   useEffect(() => {
     // Log the error to an error reporting service
-    console.error(error);
-  }, [error]);
+    setIsClientRendered(true)
+    if (isClientRendered){
+      console.error(error);
+    }
+  }, [error, isClientRendered]);
 
   return (
     <div>
