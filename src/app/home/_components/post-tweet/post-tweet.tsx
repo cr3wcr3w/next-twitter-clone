@@ -3,12 +3,20 @@
 import { Textarea } from '~/shared/_shacdn/ui/textarea';
 import addPost from '../../_action/add-post';
 import { type SetStateAction, useState } from 'react';
+import { usePostStore } from '~/shared/_store/userTempPost';
 
 export default function PostTweet() {
   const [tweet, setTweet] = useState('');
+  const { addUserData } = usePostStore();
 
   const handleTweetChange = (event: { target: { value: SetStateAction<string> } }) => {
     setTweet(event.target.value);
+  };
+
+  const handleAddPost = async () => {
+    const createdPost = await addPost(tweet);
+    setTweet('');
+    addUserData(createdPost!);
   };
 
   return (
@@ -21,10 +29,7 @@ export default function PostTweet() {
       />
       <button
         className="rounded-full bg-white px-5 py-2 text-base font-normal text-black hover:bg-white/70"
-        onClick={async () => {
-          setTweet('');
-          await addPost(tweet);
-        }}
+        onClick={handleAddPost}
       >
         Post
       </button>

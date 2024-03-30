@@ -1,5 +1,5 @@
-import getAllUserData from './_actions/get-all-user-data';
 import Link from 'next/link';
+import getAllUserData from './_data-layer/get-all-user-data';
 
 export default async function ListAllUsers() {
   const DATA = await getAllUserData();

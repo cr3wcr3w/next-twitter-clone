@@ -1,6 +1,7 @@
 import '~/shared/_styles/globals.css';
 
 import { type ReactNode } from 'react';
+import Providers from './provider';
 
 export const metadata = {
   title: 'Twitter Clone',
@@ -18,7 +19,7 @@ export default function Layout({ children, modal }: PropsType) {
     <html lang="en">
       <body>
         {modal}
-        {children}
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

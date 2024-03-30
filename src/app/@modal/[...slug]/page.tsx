@@ -11,11 +11,16 @@ import PasswordReset from '~/app/_components/password-reset/password-reset';
 
 export default function Page({ params: { slug } }: { params: { slug: string[] } }) {
   useEffect(() => {
+    if (slug === undefined) {
+      return;
+    }
+
     document.body.classList.add('overflow-hidden');
 
     return () => {
       document.body.classList.remove('overflow-hidden');
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   if (!slug) {

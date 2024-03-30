@@ -75,6 +75,7 @@ export default async function Layout({ children }: { children: React.ReactNode }
           </TooltipWrapper>
         </Form>
       </nav>
+
       {children}
     </div>
   );

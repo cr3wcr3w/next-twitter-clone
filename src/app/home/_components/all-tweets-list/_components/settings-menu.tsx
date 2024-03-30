@@ -4,6 +4,7 @@ import { Github, MoreHorizontal, Repeat2, Trash2, UserPlus } from 'lucide-react'
 import { Popover, PopoverContent, PopoverTrigger } from '~/shared/_shacdn/ui/popover';
 import removePost from '~/app/home/_action/remove-post';
 import { useState } from 'react';
+import { usePostStore } from '~/shared/_store/userTempPost';
 
 export function SettingsMenu({
   UserId,
@@ -15,6 +16,8 @@ export function SettingsMenu({
   currentUserId: string | undefined;
 }) {
   const [isOpenModalPost, setIsOpenModalPost] = useState(false);
+
+  const { deletePost } = usePostStore();
 
   return (
     <Popover open={isOpenModalPost} onOpenChange={setIsOpenModalPost}>
@@ -54,6 +57,7 @@ export function SettingsMenu({
                 className="flex w-full items-center gap-2 p-3 hover:bg-white/20"
                 onClick={async () => {
                   await removePost(id);
+                  deletePost(id);
                   setIsOpenModalPost(false);
                 }}
               >

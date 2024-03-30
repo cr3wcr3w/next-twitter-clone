@@ -9,12 +9,12 @@ export default function Error({
   error: Error & { digest?: string };
   reset: () => void;
 }) {
-  const [isClientRendered, setIsClientRendered] = useState(false) 
+  const [isClientRendered, setIsClientRendered] = useState(false);
 
   useEffect(() => {
     // Log the error to an error reporting service
-    setIsClientRendered(true)
-    if (isClientRendered){
+    setIsClientRendered(true);
+    if (isClientRendered) {
       console.error(error);
     }
   }, [error, isClientRendered]);

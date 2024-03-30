@@ -1,14 +1,14 @@
-'use action';
+// 'use action';
 
 import { db } from '~/server/db';
-import { validateRequest } from '~/server/auth';
+// import { validateRequest } from '~/server/auth';
 
 export default async function getAllUserData(): Promise<{ username: string }[] | null> {
-  const { user } = await validateRequest();
+  // const { user } = await validateRequest();
 
-  if (!user) {
-    return null;
-  }
+  // if (!user) {
+  //   return null;
+  // }
 
   const userData = await db.user.findMany({
     select: {

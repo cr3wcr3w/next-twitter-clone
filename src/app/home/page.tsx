@@ -1,13 +1,41 @@
 import { Separator } from '~/shared/_shacdn/ui/separator';
 import { Input } from '~/shared/_shacdn/ui/input';
 import ListAllUsers from './_components/list-all-users/listAllUsers';
-import { Suspense } from 'react';
 import PostTweet from './_components/post-tweet/post-tweet';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '~/shared/_shacdn/ui/tabs';
-import Loading from './_components/all-tweets-list/loading';
 import AllTweetsList from './_components/all-tweets-list/all-tweets-list';
+import { validateRequest } from '~/server/auth';
+import { db } from '~/server/db';
 
-export default function Page() {
+export type getAllPostsType = {
+  tweets: string;
+  id: string;
+  createdAt: Date;
+  userId: string;
+  userName: string;
+};
+async function getAllPosts(): Promise<getAllPostsType[] | null> {
+  try {
+    const posts = await db.post.findMany({
+      select: {
+        tweets: true,
+        id: true,
+        createdAt: true,
+        userId: true,
+        userName: true,
+      },
+    });
+
+    return posts;
+  } catch (error) {
+    return null;
+  }
+}
+
+export default async function Page() {
+  const posts = await getAllPosts();
+  const { user } = await validateRequest();
+
   return (
     <>
       <main className="max-w-[50rem] flex-1 border-x-[1px] border-white/55 text-white">
@@ -36,9 +64,7 @@ export default function Page() {
                   </div>
                   <Separator className="my-[1px]" />
                   <div>
-                    <Suspense fallback={<Loading />}>
-                      <AllTweetsList />
-                    </Suspense>
+                    <AllTweetsList posts={posts?.reverse()} user={user} />
                   </div>
                 </div>
               </div>

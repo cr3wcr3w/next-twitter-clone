@@ -1,7 +1,8 @@
-'use action';
+'use server';
+
 import { db } from '~/server/db';
 
-type getAllPostsType = {
+export type getAllPostsType = {
   tweets: string;
   id: string;
   createdAt: Date;
@@ -10,24 +11,15 @@ type getAllPostsType = {
 };
 
 export default async function getAllPosts(): Promise<getAllPostsType[] | null> {
-  try {
-    // temp delay
-    // await new Promise(resolve => setTimeout(resolve, 1000));
+  const posts = await db.post.findMany({
+    select: {
+      tweets: true,
+      id: true,
+      createdAt: true,
+      userId: true,
+      userName: true,
+    },
+  });
 
-    const posts = await db.post.findMany({
-      select: {
-        tweets: true,
-        id: true,
-        createdAt: true,
-        userId: true,
-        userName: true,
-      },
-    });
-
-    return posts;
-  } catch (error) {
-    return null;
-  }
+  return posts.reverse();
 }
-
-// todo cache this data
