@@ -18,8 +18,10 @@ export default function Layout({ children, modal }: PropsType) {
   return (
     <html lang="en">
       <body>
-        {modal}
-        <Providers>{children}</Providers>
+        <Providers>
+          {modal}
+          {children}
+        </Providers>
       </body>
     </html>
   );
